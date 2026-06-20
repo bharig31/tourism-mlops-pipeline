@@ -55,6 +55,7 @@ def deploy_to_space():
         ("app.py", "app.py"),
         ("utils.py", "utils.py"),
         ("requirements-deployment.txt", "requirements.txt"),  # Streamlit SDK expects requirements.txt
+        ("Dockerfile", "Dockerfile"),
     ]
 
     # Upload each file
@@ -68,9 +69,9 @@ def deploy_to_space():
                 repo_id=SPACE_NAME,
                 repo_type="space"
             )
-            print(f"✓ {remote_file} uploaded successfully")
+            print(f"[OK] {remote_file} uploaded successfully")
         else:
-            print(f"✗ {local_file} not found at {local_path}, skipping")
+            print(f"[SKIP] {local_file} not found at {local_path}, skipping")
     
     # Create README for the space
     readme_content = """---
@@ -111,7 +112,7 @@ The model was trained using ensemble methods (Random Forest, XGBoost, Gradient B
         repo_id=SPACE_NAME,
         repo_type="space"
     )
-    print("✓ README.md uploaded successfully")
+    print("[OK] README.md uploaded successfully")
     
     print("\n" + "="*50)
     print("Deployment completed successfully!")
