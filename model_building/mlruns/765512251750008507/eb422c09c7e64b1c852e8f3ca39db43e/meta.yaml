@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/bharig/Documents/GreatLeraning/MLOPS/notebook/tourism_project/model_building/mlruns/765512251750008507/eb422c09c7e64b1c852e8f3ca39db43e/artifacts
+end_time: 1781948844980
+entry_point_name: ''
+experiment_id: '765512251750008507'
+lifecycle_stage: active
+run_id: eb422c09c7e64b1c852e8f3ca39db43e
+run_name: DecisionTree
+run_uuid: eb422c09c7e64b1c852e8f3ca39db43e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1781948782400
+status: 3
+tags: []
+user_id: bharig

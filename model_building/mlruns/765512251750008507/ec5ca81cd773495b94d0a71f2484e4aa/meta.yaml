@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/bharig/Documents/GreatLeraning/MLOPS/notebook/tourism_project/model_building/mlruns/765512251750008507/ec5ca81cd773495b94d0a71f2484e4aa/artifacts
+end_time: 1781950132494
+entry_point_name: ''
+experiment_id: '765512251750008507'
+lifecycle_stage: active
+run_id: ec5ca81cd773495b94d0a71f2484e4aa
+run_name: XGBoost
+run_uuid: ec5ca81cd773495b94d0a71f2484e4aa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1781950122866
+status: 3
+tags: []
+user_id: bharig

@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/bharig/Documents/GreatLeraning/MLOPS/notebook/tourism_project/model_building/mlruns/765512251750008507/8fa465a4623f4fecaff3f55398ade675/artifacts
+end_time: 1781948885279
+entry_point_name: ''
+experiment_id: '765512251750008507'
+lifecycle_stage: active
+run_id: 8fa465a4623f4fecaff3f55398ade675
+run_name: GradientBoosting
+run_uuid: 8fa465a4623f4fecaff3f55398ade675
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1781948868057
+status: 3
+tags: []
+user_id: bharig
