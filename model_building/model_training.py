@@ -105,8 +105,12 @@ def train_decision_tree(X_train, y_train, X_test, y_test):
         # Log metrics
         mlflow.log_metrics(metrics)
         
-        # Log model
-        mlflow.sklearn.log_model(best_model, "model")
+        # Log model (with error handling for GitHub Actions)
+        try:
+            mlflow.sklearn.log_model(best_model, "model")
+        except Exception as e:
+            print(f"Warning: Failed to log model to MLflow: {e}")
+            print("Continuing without MLflow model logging...")
         
         print(f"Best parameters: {grid_search.best_params_}")
         print(f"Test Accuracy: {metrics['accuracy']:.4f}")
@@ -135,7 +139,13 @@ def train_random_forest(X_train, y_train, X_test, y_test):
         
         metrics, y_pred = evaluate_model(best_model, X_test, y_test)
         mlflow.log_metrics(metrics)
-        mlflow.sklearn.log_model(best_model, "model")
+        
+        # Log model (with error handling for GitHub Actions)
+        try:
+            mlflow.sklearn.log_model(best_model, "model")
+        except Exception as e:
+            print(f"Warning: Failed to log model to MLflow: {e}")
+            print("Continuing without MLflow model logging...")
         
         print(f"Best parameters: {grid_search.best_params_}")
         print(f"Test Accuracy: {metrics['accuracy']:.4f}")
@@ -165,7 +175,13 @@ def train_xgboost(X_train, y_train, X_test, y_test):
         
         metrics, y_pred = evaluate_model(best_model, X_test, y_test)
         mlflow.log_metrics(metrics)
-        mlflow.sklearn.log_model(best_model, "model")
+        
+        # Log model (with error handling for GitHub Actions)
+        try:
+            mlflow.sklearn.log_model(best_model, "model")
+        except Exception as e:
+            print(f"Warning: Failed to log model to MLflow: {e}")
+            print("Continuing without MLflow model logging...")
         
         print(f"Best parameters: {grid_search.best_params_}")
         print(f"Test Accuracy: {metrics['accuracy']:.4f}")
@@ -194,7 +210,13 @@ def train_gradient_boosting(X_train, y_train, X_test, y_test):
         
         metrics, y_pred = evaluate_model(best_model, X_test, y_test)
         mlflow.log_metrics(metrics)
-        mlflow.sklearn.log_model(best_model, "model")
+        
+        # Log model (with error handling for GitHub Actions)
+        try:
+            mlflow.sklearn.log_model(best_model, "model")
+        except Exception as e:
+            print(f"Warning: Failed to log model to MLflow: {e}")
+            print("Continuing without MLflow model logging...")
         
         print(f"Best parameters: {grid_search.best_params_}")
         print(f"Test Accuracy: {metrics['accuracy']:.4f}")
