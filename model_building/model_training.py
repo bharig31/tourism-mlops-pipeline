@@ -24,9 +24,12 @@ HF_USERNAME = os.getenv('HF_USERNAME') or (sys.argv[1] if len(sys.argv) > 1 else
 # Login to Hugging Face if needed
 # login(token="your_huggingface_token")
 
-# Set MLflow tracking URI to current directory
+# Set MLflow tracking URI to temp directory for GitHub Actions compatibility
 import os
-mlflow.set_tracking_uri(f"file://{os.path.abspath('mlruns')}")
+import tempfile
+mlflow_tracking_dir = os.path.join(tempfile.gettempdir(), "mlruns")
+os.makedirs(mlflow_tracking_dir, exist_ok=True)
+mlflow.set_tracking_uri(f"file://{mlflow_tracking_dir}")
 mlflow.set_experiment("wellness_tourism_package_prediction")
 
 def load_data():
