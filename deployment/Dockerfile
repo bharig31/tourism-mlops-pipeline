@@ -15,13 +15,15 @@ ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     gcc \
+    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements file
-COPY requirements-deployment.txt .
+COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements-deployment.txt
+RUN pip install --no-cache-dir xgboost==2.0.0 && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
 COPY app.py .
