@@ -1,7 +1,7 @@
 """
 Data Preparation Script
-Loads dataset from local file, performs cleaning, splits into train/test,
-and uploads to Hugging Face.
+Loads dataset from Hugging Face dataset hub, performs cleaning, splits into train/test,
+and uploads prepared dataset back to Hugging Face.
 """
 
 from datasets import Dataset, DatasetDict
@@ -25,9 +25,11 @@ def prepare_data():
         print("Usage: python data_preparation.py your_huggingface_username")
         return
     
-    # Load raw dataset from local file
-    print("Loading dataset from local file...")
-    df = pd.read_csv('../data/tourism.csv')
+    # Load raw dataset from Hugging Face
+    print("Loading dataset from Hugging Face...")
+    from datasets import load_dataset
+    hf_dataset = load_dataset(f"{HF_USERNAME}/wellness-tourism-customers", split="raw")
+    df = hf_dataset.to_pandas()
     
     # Data cleaning
     print("Cleaning data...")

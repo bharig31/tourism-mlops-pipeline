@@ -33,9 +33,11 @@ mlflow.set_tracking_uri(f"file://{mlflow_tracking_dir}")
 mlflow.set_experiment("wellness_tourism_package_prediction")
 
 def load_data():
-    """Load and prepare train and test datasets from local file."""
-    print("Loading dataset from local file...")
-    df = pd.read_csv('../data/tourism.csv')
+    """Load and prepare train and test datasets from Hugging Face."""
+    print("Loading dataset from Hugging Face...")
+    from datasets import load_dataset
+    hf_dataset = load_dataset(f"{HF_USERNAME}/wellness-tourism-customers", split="raw")
+    df = hf_dataset.to_pandas()
     
     # Data cleaning
     print("Cleaning data...")
